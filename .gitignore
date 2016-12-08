@@ -1,0 +1,8 @@
+.vagrant
+Vagrantfile.rb
+Berksfile.lock
+
+.idea
+
+.kitchen/
+.kitchen.local.yml

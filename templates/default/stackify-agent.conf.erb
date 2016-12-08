@@ -1,0 +1,38 @@
+# Stackify Configuration
+
+sudoDisabled=<%= node['stackify']['stackify_agent']['disablesudo'] %>
+
+# Discovery Configuration
+
+discovery.apache=<%= node['stackify']['stackify_agent']['discovery']['apache'] %>
+discovery.nginx=<%= node['stackify']['stackify_agent']['discovery']['nginx'] %>
+discovery.jboss=<%= node['stackify']['stackify_agent']['discovery']['jboss'] %>
+discovery.tomcat=<%= node['stackify']['stackify_agent']['discovery']['tomcat'] %>
+discovery.nodejs=<%= node['stackify']['stackify_agent']['discovery']['nodejs'] %>
+
+# HTTP Proxy Configuration
+
+# The http.proxyHost and http.proxyPort properties define the proxy host
+# and port for all HTTP connections.
+<% if node['stackify']['stackify_agent']['proxy']['host'] != nil -%>
+http.proxyHost=<%= node['stackify']['stackify_agent']['proxy']['host'] %>
+<% else -%>
+#http.proxyHost=
+<% end -%>
+<% if node['stackify']['stackify_agent']['proxy']['port'] != nil -%>
+http.proxyPort=<%= node['stackify']['stackify_agent']['proxy']['port'] %>
+<% else -%>
+#http.proxyPort=
+<% end -%>
+
+# The certificates that are used by the proxy may not be trusted by the
+# default trust manager in Java. By using the http.proxyCert property, the
+# Stackify agent will trust the certificates coming from the proxy. The
+# property should be set to the full path of the proxy's certificate. This
+# setting is optional, but may be required depending on your configuration.
+<% if node['stackify']['stackify_agent']['proxy']['cert_filename'] != nil -%>
+http.proxyCert=<%= node['stackify']['stackify_agent']['proxy']['cert_filename'] %>
+<% else -%>
+#http.proxyCert=
+<% end -%>
+

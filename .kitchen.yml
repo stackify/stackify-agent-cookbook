@@ -1,0 +1,42 @@
+---
+driver:
+  name: vagrant
+  linked_clone: true
+
+provisioner:
+  name: chef_zero
+
+verifier:
+  name: inspec
+  format: documentation
+
+platforms:
+  - name: ubuntu-16.04
+  - name: ubuntu-14.04
+  - name: ubuntu-12.04
+  - name: debian-8.5
+  - name: debian-7.10
+  - name: debian-6.0.10
+  - name: fedora-24
+  - name: fedora-23
+  - name: fedora-19
+    driver:
+      box: opscode-fedora-19
+      box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode-fedora-19_provisionerless.box
+  - name: centos-7.2
+  - name: centos-6.8
+  - name: centos-5.9
+    driver_config:
+      box: opscode-centos-5.9
+      box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-5.9_provisionerless.box
+
+suites:
+  - name: default
+    run_list:
+      - recipe[stackify_agent::default]
+    attributes:
+      stackify:
+        stackify_agent:
+          agent_url: <%= ENV['STACKIFY_AGENT_URL'] %>
+          environment: <%= ENV['STACKIFY_AGENT_ENVIRONMENT'] %>
+          key: <%= ENV['STACKIFY_AGENT_KEY'] %>
