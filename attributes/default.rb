@@ -30,6 +30,8 @@ default['stackify']['stackify_agent']['discovery']['jboss'] = true
 default['stackify']['stackify_agent']['discovery']['tomcat'] = true
 default['stackify']['stackify_agent']['discovery']['nodejs'] = true
 
+# Custom system host name
+default['stackify']['stackify_agent']['devicealias'] = nil
 # Custom ID for stackify user
 default['stackify']['stackify_agent']['uid'] = nil
 # Custom ID for stackify group

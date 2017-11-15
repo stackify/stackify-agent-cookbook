@@ -13,6 +13,7 @@ stackify_agent_install_script_name = 'agent-install.sh'
 stackify_agent_install_script_options = " --key #{node['stackify']['stackify_agent']['key']}"
 stackify_agent_install_script_options << " --environment #{node['stackify']['stackify_agent']['environment']}"
 
+stackify_agent_install_script_options << " --devicealias #{node['stackify']['stackify_agent']['devicealias']}" unless node['stackify']['stackify_agent']['devicealias'] == nil?
 stackify_agent_install_script_options << " --uid #{node['stackify']['stackify_agent']['uid']}" unless node['stackify']['stackify_agent']['uid'] == nil?
 stackify_agent_install_script_options << " --gid #{node['stackify']['stackify_agent']['gid']}" unless node['stackify']['stackify_agent']['gid'] == nil?
 stackify_agent_install_script_options << " --docker " if node['stackify']['stackify_agent']['docker']
