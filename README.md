@@ -44,6 +44,7 @@ Cookbook provides **Stackify Linux Agent** installation.
 * `node['stackify']['stackify_agent']['discovery']['nodejs']` - Discover Node.js webapps, defaults to true.
 
 ##### Additional Options
+* `node['stackify']['stackify_agent']['devicealias']` - Custom system host name.
 * `node['stackify']['stackify_agent']['uid']` - Custom ID for stackify user.
 * `node['stackify']['stackify_agent']['gid']` - Custom ID for stackify group.
 * `node['stackify']['stackify_agent']['docker']` - Use when installing on a docker host. Adds `stackify` user to `docker` user group. Defaults to false.
