@@ -3,7 +3,7 @@ maintainer 'Stackify'
 maintainer_email 'support@stackify.com'
 description 'Installs/Configures Stackify Agent'
 long_description 'Installs/Configures Stackify Agent'
-version '0.1.0'
+version '1.0.0'
 
 %w(debian ubuntu redhat centos fedora amazon).each do |os|
   supports os
